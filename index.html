@@ -1,1 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop Rooted Ritual handcrafted botanical skincare online. Artisanal soaps, nourishing facial creams, and pure natural self-care.">
+  <title>Rooted Ritual | Handcrafted Botanical Skincare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f9f6f0;
+  --panel: #ffffff;
+  --panel2: #f2ece1;
+  --text: #20241f;
+  --muted: #646a5f;
+  --primary: #25422e;
+  --primary-dark: #1b3122;
+  --accent: #bc8247;
+  --accent-soft: #f4e8da;
+  --success: #35734d;
+  --danger: #b94035;
+  --border: #dfd7c8;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Plus Jakarta Sans', 'Segoe UI', -apple-system, sans-serif;
+  --shadow: 0 12px 32px rgba(37,66,46,0.06);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); letter-spacing: .02em; line-height: 1.15; font-weight: 600; }
+.site-shell { width: min(1140px, calc(100% - 36px)); margin: auto; }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  padding-top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: rgba(249,246,240,.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.header-inner, .brand, .cart-header, .summary-line, .checkout-header, .checkout-summary-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-inner { min-height: 74px; gap: 16px; }
+.brand {
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: .04em;
+}
+.brand span { font-style: italic; color: var(--accent); font-weight: 400; }
+.site-nav { display: flex; gap: 28px; font-size: .9rem; font-weight: 500; }
+.site-nav a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.site-nav a:hover { color: var(--primary); }
+
+.cart-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background: var(--primary);
+  border: 0;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: .88rem;
+  transition: background .2s, transform .2s;
+}
+.cart-button:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.cart-count {
+  display: grid;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  place-items: center;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.hero {
+  position: relative;
+  min-height: min(64vh, 520px);
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 85% 15%, rgba(188,130,71,0.12), transparent 55%), linear-gradient(180deg, #f2ece1 0%, #f9f6f0 100%);
+  border-bottom: 1px solid var(--border);
+}
+.hero .site-shell { padding: 60px 0; }
+.hero h1 {
+  font-size: clamp(2.8rem, 6.2vw, 4.6rem);
+  margin: 0;
+  color: var(--primary);
+  max-width: 14ch;
+}
+.hero h1 span { font-style: italic; font-weight: 400; color: var(--accent); }
+.hero p { max-width: 44ch; margin: 20px 0 30px; font-size: 1.05rem; color: var(--muted); }
+.hero-actions { display: flex; gap: 14px; }
+.primary-link, .secondary-link {
+  display: inline-flex;
+  min-height: 48px;
+  padding: 0 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: .92rem;
+  transition: .2s;
+}
+.primary-link { color: #fff; background: var(--primary); }
+.primary-link:hover { background: var(--primary-dark); }
+.secondary-link { border: 1px solid var(--border); background: #fff; color: var(--text); }
+.secondary-link:hover { border-color: var(--accent); }
+
+.section { padding: 72px 0; }
+.promotion-banner {
+  display: none;
+  margin-bottom: 34px;
+  padding: 16px 22px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  align-items: center;
+  gap: 14px;
+}
+.promotion-banner.visible { display: flex; }
+.promotion-icon { font-size: 1.6rem; }
+.promotion-banner strong { display: block; font-family: var(--display); font-size: 1.35rem; color: var(--primary); }
+.promotion-banner span { color: var(--muted); font-size: .9rem; }
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.section-heading h2 { margin: 0; font-size: 2.3rem; color: var(--primary); }
+.section-heading p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+.status-panel {
+  padding: 32px;
+  color: var(--muted);
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 14px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 28px;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .2s, border-color .2s;
+}
+.product-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.product-image {
+  display: grid;
+  place-items: center;
+  background: var(--panel2);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+.image-placeholder { font-size: 3.8rem; }
+.product-content { display: flex; flex: 1; flex-direction: column; padding: 24px; }
+.product-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.category-label { color: var(--accent); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.stock-label { font-size: .75rem; padding: 4px 10px; border-radius: 999px; background: #eef6f0; color: var(--success); font-weight: 600; }
+.stock-label.out { background: #fdeeee; color: var(--danger); }
+.product-card h3 { margin: 0 0 8px; font-size: 1.6rem; color: var(--primary); }
+.product-description { color: var(--muted); font-size: .9rem; min-height: 48px; margin-bottom: 18px; }
+.price-row { display: flex; align-items: baseline; gap: 10px; margin-top: auto; }
+.current-price { font-size: 1.55rem; font-weight: 600; color: var(--text); }
+.regular-price.special { color: var(--muted); text-decoration: line-through; font-size: 1rem; }
+
+.product-actions { display: grid; grid-template-columns: auto 1fr; gap: 12px; margin-top: 18px; }
+.quantity-control {
+  display: grid;
+  grid-template-columns: 36px 36px 36px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.quantity-control button { border: 0; background: transparent; font-weight: 600; }
+.quantity-control button:hover:not(:disabled) { background: var(--panel2); }
+.quantity-control span { display: grid; place-items: center; font-weight: 600; font-size: .9rem; }
+.add-button {
+  min-height: 44px;
+  color: #fff;
+  background: var(--primary);
+  border: 0;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: background .2s;
+}
+.add-button:hover:not(:disabled) { background: var(--primary-dark); }
+
+.cart-overlay, .checkout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  visibility: hidden;
+  background: rgba(32,36,31,0);
+  transition: .25s;
+}
+.cart-overlay.open, .checkout-overlay.open { visibility: visible; background: rgba(32,36,31,.55); }
+.cart-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: min(440px, 100%);
+  height: 100%;
+  flex-direction: column;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  transform: translateX(100%);
+  transition: transform .28s;
+}
+.cart-overlay.open .cart-panel { transform: none; }
+.cart-header { padding: 22px 24px; border-bottom: 1px solid var(--border); }
+.cart-header h2 { margin: 0; font-size: 1.6rem; color: var(--primary); }
+.close-cart {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  display: grid;
+  place-items: center;
+  transition: .2s;
+}
+.close-cart:hover { border-color: var(--accent); }
+.cart-items { flex: 1; overflow: auto; padding: 20px 24px; }
+.empty-cart { padding: 50px 20px; text-align: center; color: var(--muted); }
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cart-item h4 { margin: 0 0 4px; font-size: 1rem; color: var(--text); font-weight: 600; }
+.cart-item-price { color: var(--muted); font-size: .84rem; }
+.cart-item-actions { display: flex; align-items: center; gap: 8px; }
+.cart-item-actions button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  font-weight: 600;
+}
+.remove-button { color: var(--danger); }
+.cart-summary {
+  padding: 20px 24px calc(24px + env(safe-area-inset-bottom, 0px));
+  background: var(--panel2);
+  border-top: 1px solid var(--border);
+}
+.summary-line { margin-bottom: 8px; color: var(--muted); font-size: .9rem; }
+.summary-line.total {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.offer-message {
+  display: none;
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  font-size: .84rem;
+  color: var(--primary);
+}
+.offer-message.visible { display: block; }
+.checkout-button, .submit-order-button {
+  width: 100%;
+  min-height: 48px;
+  color: #fff;
+  background: var(--primary);
+  border: 0;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: background .2s;
+}
+.checkout-button:hover:not(:disabled), .submit-order-button:hover { background: var(--primary-dark); }
+.checkout-note, .checkout-disclaimer { font-size: .76rem; color: var(--muted); text-align: center; margin-top: 10px; }
+
+.checkout-overlay { z-index: 60; display: grid; padding: 20px; place-items: center; overflow: auto; }
+.checkout-dialog {
+  width: min(620px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .25s;
+}
+.checkout-overlay.open .checkout-dialog { opacity: 1; transform: none; }
+.checkout-header { padding: 22px 24px; border-bottom: 1px solid var(--border); }
+.checkout-header h2 { margin: 0; font-size: 1.8rem; color: var(--primary); }
+.checkout-header p { margin: 4px 0 0; color: var(--muted); font-size: .85rem; }
+.checkout-form { padding: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.full-width { grid-column: 1 / -1; }
+.form-group label, .delivery-heading { font-size: .82rem; font-weight: 600; color: var(--text); }
+.form-group input, .form-group textarea, .form-group select {
+  padding: 12px 14px;
+  background: #faf7f2;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+.form-group textarea { min-height: 80px; resize: vertical; }
+.delivery-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
+.delivery-option { position: relative; }
+.delivery-option input { position: absolute; opacity: 0; }
+.delivery-option-content {
+  display: block;
+  min-height: 88px;
+  padding: 12px;
+  background: #faf7f2;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+.delivery-option input:checked + .delivery-option-content { background: #f2ece1; border-color: var(--primary); }
+.delivery-option-title { display: block; font-weight: 600; font-size: .88rem; margin-bottom: 4px; color: var(--primary); }
+.delivery-option-description { font-size: .74rem; color: var(--muted); }
+.shipping-fields { display: none; grid-column: 1 / -1; }
+.shipping-fields.visible { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.notice-box { padding: 12px 14px; background: #f2ece1; border: 1px solid var(--border); border-radius: 12px; font-size: .82rem; }
+
+.checkout-order-summary { margin: 20px 0 16px; padding: 16px; background: #faf7f2; border: 1px solid var(--border); border-radius: 14px; }
+.checkout-error {
+  display: none;
+  margin-bottom: 14px;
+  padding: 12px;
+  color: var(--danger);
+  background: #fdeeee;
+  border-radius: 10px;
+  font-size: .85rem;
+}
+.checkout-error.visible { display: block; }
+.order-success { display: none; padding: 40px 24px; text-align: center; }
+.order-success.visible { display: block; }
+.order-success h2 { font-size: 2rem; color: var(--primary); }
+.success-icon {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 16px;
+  place-items: center;
+  background: #eef6f0;
+  color: var(--success);
+  border-radius: 50%;
+  font-size: 2rem;
+}
+.order-reference {
+  margin: 18px 0;
+  padding: 14px;
+  background: #f2ece1;
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.testing-badge {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 30;
+  padding: 8px 14px;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+.testing-badge.visible { display: block; }
+.site-footer { padding: 44px 0; border-top: 1px solid var(--border); background: var(--panel2); text-align: center; color: var(--muted); font-size: .85rem; }
+.site-footer p { margin: 6px 0; }
+[hidden] { display: none !important; }
+
+@media(max-width: 720px) {
+  .site-nav { display: none; }
+  .section { padding: 50px 0; }
+  .form-grid, .delivery-options, .shipping-fields.visible { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell header-inner">
+      <a class="brand" href="#top">Rooted <span>Ritual</span></a>
+      <nav class="site-nav">
+        <a href="#top">Home</a>
+        <a href="#shop">Collection</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="openCartButton" class="cart-button" type="button">
+        <span>Cart</span><span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="site-shell">
+        <h1>Pure botanical care, <span>rooted in ritual.</span></h1>
+        <p>Small-batch, natural soaps and nourishing facial creams handcrafted with botanical goodness to restore your skin.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#shop">Explore our range</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="site-shell">
+        <div id="promotionBanner" class="promotion-banner">
+          <div class="promotion-icon">🌿</div>
+          <div>
+            <strong id="promotionTitle">Special Offer</strong>
+            <span id="promotionDescription">Automatic bundle savings applied in your cart.</span>
+          </div>
+        </div>
+        <div class="section-heading">
+          <h2>The Handcrafted Collection</h2>
+          <p>Pure, minimal, and nourishing artisanal skincare.</p>
+        </div>
+        <div id="loadingPanel" class="status-panel">
+          <div class="loading-spinner"></div>Loading Rooted Ritual range...
+        </div>
+        <div id="errorPanel" class="status-panel" hidden></div>
+        <div id="productGrid" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART OVERLAY -->
+  <div id="cartOverlay" class="cart-overlay" aria-hidden="true">
+    <aside class="cart-panel">
+      <div class="cart-header">
+        <h2>Your Ritual Cart</h2>
+        <button id="closeCartButton" class="close-cart" type="button">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div class="summary-line"><span>Subtotal</span><strong id="cartSubtotal">R0.00</strong></div>
+        <div id="discountLine" class="summary-line" style="color:var(--success);" hidden><span>Savings</span><strong id="cartDiscount">-R0.00</strong></div>
+        <div id="offerMessage" class="offer-message"></div>
+        <div class="summary-line total"><span>Total</span><strong id="cartTotal">R0.00</strong></div>
+        <button id="checkoutButton" class="checkout-button" type="button" disabled>Proceed to checkout</button>
+        <p class="checkout-note">Secure Yoco and EFT payment instructions sent after placing your order.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- CHECKOUT DIALOG -->
+  <div id="checkoutOverlay" class="checkout-overlay" aria-hidden="true">
+    <section class="checkout-dialog">
+      <div id="checkoutFormView">
+        <div class="checkout-header">
+          <div>
+            <h2>Checkout</h2>
+            <p>Please enter your contact and delivery details.</p>
+          </div>
+          <button id="closeCheckoutButton" class="close-cart" type="button">✕</button>
+        </div>
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-grid">
+            <div class="form-group"><label for="firstName">First name</label><input id="firstName" name="firstName" type="text" required></div>
+            <div class="form-group"><label for="surname">Surname</label><input id="surname" name="surname" type="text" required></div>
+            <div class="form-group"><label for="cellphone">Cellphone number</label><input id="cellphone" name="cellphone" type="tel" required></div>
+            <div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" required></div>
+            <div class="form-group full-width">
+              <span class="delivery-heading">Delivery Method</span>
+              <div class="delivery-options">
+                <label class="delivery-option">
+                  <input type="radio" name="deliveryMethod" value="COLLECTION" checked>
+                  <span class="delivery-option-content">
+                    <span class="delivery-option-title">Collection</span>
+                    <span class="delivery-option-description">Free collection. Arrangements confirmed separately.</span>
+                  </span>
+                </label>
+                <label class="delivery-option">
+                  <input type="radio" name="deliveryMethod" value="PUDO_BOX_TO_BOX">
+                  <span class="delivery-option-content">
+                    <span class="delivery-option-title">PUDO Box to Box</span>
+                    <span class="delivery-option-description">To your chosen PUDO locker. R80 (1–3 items) or R100 (4+).</span>
+                  </span>
+                </label>
+                <label class="delivery-option">
+                  <input type="radio" name="deliveryMethod" value="PUDO_BOX_TO_DOOR">
+                  <span class="delivery-option-content">
+                    <span class="delivery-option-title">PUDO to Door</span>
+                    <span class="delivery-option-description">To your physical address. R120 (1–3 items) or R150 (4+).</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div id="collectionPaymentDatePanel" class="form-group full-width">
+              <label for="requestedPaymentDate">Preferred payment or collection date (optional)</label>
+              <input id="requestedPaymentDate" name="requestedPaymentDate" type="date">
+              <small style="display:block;margin-top:6px;color:var(--muted);font-size:.78rem;">Leave blank to use the standard 7-day payment window. If selected, payment is due on that date and stock is held for a further 24 hours.</small>
+            </div>
+            <div id="shippingPaymentNotice" class="form-group full-width" hidden>
+              <div class="notice-box"><strong>Shipping payment notice:</strong> Payment is due within 24 hours of placing the order.</div>
+            </div>
+            <div id="shippingFields" class="shipping-fields">
+              <div class="form-group full-width"><label id="deliveryAddressLabel" for="deliveryAddress">Delivery address</label><input id="deliveryAddress" name="deliveryAddress" type="text"></div>
+              <div class="form-group"><label for="deliverySuburb">Suburb</label><input id="deliverySuburb" name="deliverySuburb" type="text"></div>
+              <div class="form-group"><label for="deliveryCity">City</label><input id="deliveryCity" name="deliveryCity" type="text"></div>
+              <div class="form-group"><label for="deliveryProvince">Province</label>
+                <select id="deliveryProvince" name="deliveryProvince">
+                  <option value="">Select province</option>
+                  <option>Eastern Cape</option><option>Free State</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Limpopo</option><option>Mpumalanga</option><option>North West</option><option>Northern Cape</option><option>Western Cape</option>
+                </select>
+              </div>
+              <div class="form-group"><label for="deliveryPostalCode">Postal code</label><input id="deliveryPostalCode" name="deliveryPostalCode" type="text" maxlength="4"></div>
+              <div class="form-group full-width"><label for="deliveryCountry">Country</label><input id="deliveryCountry" name="deliveryCountry" type="text" value="South Africa" readonly></div>
+            </div>
+            <div class="form-group full-width"><label for="orderNotes">Order notes (optional)</label><textarea id="orderNotes" name="orderNotes"></textarea></div>
+          </div>
+          <div class="checkout-order-summary">
+            <div class="checkout-summary-line"><span>Subtotal</span><strong id="checkoutSubtotal">R0.00</strong></div>
+            <div id="checkoutDiscountLine" class="checkout-summary-line" style="color:var(--success);" hidden><span>Savings</span><strong id="checkoutDiscount">-R0.00</strong></div>
+            <div class="checkout-summary-line"><span>Delivery</span><strong id="checkoutShipping">R0.00</strong></div>
+            <div class="checkout-summary-line total"><span>Total</span><strong id="checkoutTotal">R0.00</strong></div>
+          </div>
+          <div id="checkoutError" class="checkout-error"></div>
+          <button id="submitOrderButton" class="submit-order-button" type="submit">Place order</button>
+          <p class="checkout-disclaimer">Your products are reserved pending payment. Payment instructions and dates will be confirmed via email and WhatsApp.</p>
+        </form>
+      </div>
+      <div id="orderSuccess" class="order-success">
+        <div class="success-icon">✓</div>
+        <h2>Order Received</h2>
+        <p>Thank you for choosing Rooted Ritual. Please check your email for payment instructions.</p>
+        <div id="successOrderReference" class="order-reference"></div>
+        <p id="successOrderTotal" style="font-weight:600;color:var(--text);"></p>
+        <button id="successCloseButton" class="checkout-button" type="button" style="max-width:240px;margin:20px auto 0;">Return to shop</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="testingBadge" class="testing-badge">Testing mode</div>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-shell">
+      <p><strong>Rooted Ritual</strong> &bull; Pure botanical skincare</p>
+      <p>Questions or enquiries? <a href="mailto:info@chilliboyz.co.za" style="color:var(--primary);font-weight:600;text-decoration:none;">info@chilliboyz.co.za</a></p>
+      <p style="margin-top:10px;"><a href="https://wa.me/27772711349" style="color:var(--accent);text-decoration:none;font-weight:600;">WhatsApp Support: 077 271 1349</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyhLljThdXFWLbIEzweRn8e_Jp5KNMYhfcIjK14t8aqHAeqZxc5WVjgkeSTnLqnPjKUdg/exec';
+    const BUSINESS = 'rootedritual';
+
+    const state = {
+      store: null,
+      products: [],
+      promotions: [],
+      cart: {},
+      selectedQuantities: {},
+      checkoutToken: ''
+    };
+
+    const $ = id => document.getElementById(id);
+    const el = {
+      loadingPanel: $('loadingPanel'), errorPanel: $('errorPanel'), productGrid: $('productGrid'),
+      promotionBanner: $('promotionBanner'), promotionTitle: $('promotionTitle'), promotionDescription: $('promotionDescription'),
+      openCartButton: $('openCartButton'), closeCartButton: $('closeCartButton'), cartOverlay: $('cartOverlay'),
+      cartCount: $('cartCount'), cartItems: $('cartItems'), cartSubtotal: $('cartSubtotal'),
+      cartDiscount: $('cartDiscount'), discountLine: $('discountLine'), cartTotal: $('cartTotal'),
+      offerMessage: $('offerMessage'), checkoutButton: $('checkoutButton'), testingBadge: $('testingBadge'),
+      checkoutOverlay: $('checkoutOverlay'), closeCheckoutButton: $('closeCheckoutButton'),
+      checkoutForm: $('checkoutForm'), checkoutFormView: $('checkoutFormView'), shippingFields: $('shippingFields'),
+      checkoutSubtotal: $('checkoutSubtotal'), checkoutDiscountLine: $('checkoutDiscountLine'),
+      checkoutDiscount: $('checkoutDiscount'), checkoutShipping: $('checkoutShipping'), checkoutTotal: $('checkoutTotal'),
+      checkoutError: $('checkoutError'), submitOrderButton: $('submitOrderButton'), orderSuccess: $('orderSuccess'),
+      successOrderReference: $('successOrderReference'), successOrderTotal: $('successOrderTotal'),
+      successCloseButton: $('successCloseButton')
+    };
+
+    document.addEventListener('DOMContentLoaded', initStore);
+    el.openCartButton.onclick = openCart;
+    el.closeCartButton.onclick = closeCart;
+    el.checkoutButton.onclick = openCheckout;
+    el.closeCheckoutButton.onclick = closeCheckout;
+    el.successCloseButton.onclick = closeCheckout;
+    el.checkoutForm.addEventListener('submit', submitOrder);
+    document.querySelectorAll('input[name="deliveryMethod"]').forEach(r => r.addEventListener('change', updateDelivery));
+    el.cartOverlay.onclick = e => { if (e.target === el.cartOverlay) closeCart(); };
+    el.checkoutOverlay.onclick = e => { if (e.target === el.checkoutOverlay) closeCheckout(); };
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeCart(); closeCheckout(); } });
+
+    async function initStore() {
+      try {
+        const r = await fetch(`${API_URL}?action=store&business=${BUSINESS}&t=${Date.now()}`);
+        if (!r.ok) throw new Error('Store API returned HTTP ' + r.status);
+        const data = await r.json();
+        if (!data.success) throw new Error(data.message || 'Could not load store');
+
+        state.store = data.store;
+        state.products = data.products || [];
+        state.promotions = data.promotions || [];
+        state.products.forEach(p => state.selectedQuantities[p.productId] = 1);
+        renderStore();
+      } catch (err) {
+        el.loadingPanel.hidden = true;
+        el.errorPanel.hidden = false;
+        el.errorPanel.textContent = 'Store failed to load: ' + err.message;
+      }
+    }
+
+    function renderStore() {
+      el.loadingPanel.hidden = true;
+      el.errorPanel.hidden = true;
+      if (state.store && state.store.status === 'TESTING') {
+        el.testingBadge.classList.add('visible');
+      }
+      renderPromotions();
+      renderProducts();
+      renderCart();
+    }
+
+    function renderPromotions() {
+      const p = state.promotions.find(x => x.automaticPromotion === true && x.promotionType === 'MULTIBUY_FIXED_PRICE');
+      if (!p) {
+        el.promotionBanner.classList.remove('visible');
+        return;
+      }
+      el.promotionTitle.textContent = p.promotionLabel || p.promotionName;
+      el.promotionDescription.textContent = 'Automatic savings applied in your cart.';
+      el.promotionBanner.classList.add('visible');
+    }
+
+    function renderProducts() {
+      el.productGrid.innerHTML = '';
+      state.products.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'product-card';
+        const out = p.availableStock <= 0;
+        const icon = p.category && p.category.toLowerCase().includes('cream') ? '🧴' : '🧼';
+
+        card.innerHTML = `
+          <div class="product-image">
+            ${p.imageUrl ? `<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.productName)}">` : `<div class="image-placeholder">${icon}</div>`}
+          </div>
+          <div class="product-content">
+            <div class="product-meta">
+              <span class="category-label">${escapeHtml(p.category || 'Skincare')}</span>
+              <span class="stock-label ${out?'out':''}">${out ? 'Out of stock' : p.availableStock + ' available'}</span>
+            </div>
+            <h3>${escapeHtml(p.productName)}</h3>
+            <p class="product-description">${escapeHtml(p.description)}</p>
+            <div class="price-row">
+              <span class="current-price">${formatMoney(p.effectiveUnitPrice)}</span>
+              ${p.specialPrice !== null ? `<span class="regular-price special">${formatMoney(p.regularPrice)}</span>` : ''}
+            </div>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button type="button" data-act="dec" data-id="${p.productId}" ${out?'disabled':''}>−</button>
+                <span id="qty-${p.productId}">1</span>
+                <button type="button" data-act="inc" data-id="${p.productId}" ${out?'disabled':''}>+</button>
+              </div>
+              <button type="button" class="add-button" data-act="add" data-id="${p.productId}" ${out?'disabled':''}>${out?'Unavailable':'Add to cart'}</button>
+            </div>
+          </div>`;
+        el.productGrid.appendChild(card);
+      });
+      el.productGrid.onclick = handleProductAction;
+    }
+
+    function handleProductAction(e) {
+      const b = e.target.closest('button');
+      if (!b || b.disabled) return;
+      const id = b.dataset.id, act = b.dataset.act, p = state.products.find(x => x.productId === id);
+      if (!p) return;
+
+      let q = state.selectedQuantities[id] || 1;
+      if (act === 'inc') q = Math.min(q + 1, p.availableStock);
+      if (act === 'dec') q = Math.max(q - 1, 1);
+      state.selectedQuantities[id] = q;
+
+      const qEl = $('qty-' + id);
+      if (qEl) qEl.textContent = q;
+
+      if (act === 'add') {
+        state.cart[id] = Math.min((state.cart[id] || 0) + q, p.availableStock);
+        renderCart();
+        openCart();
+      }
+    }
+
+    function renderCart() {
+      const entries = Object.entries(state.cart);
+      el.cartItems.innerHTML = entries.length ? entries.map(([id, q]) => {
+        const p = state.products.find(x => x.productId === id);
+        return `
+          <div class="cart-item">
+            <div>
+              <h4>${escapeHtml(p.productName)}</h4>
+              <div class="cart-item-price">${formatMoney(p.effectiveUnitPrice)} each</div>
+            </div>
+            <div class="cart-item-actions">
+              <button type="button" data-cact="minus" data-id="${id}">−</button>
+              <strong>${q}</strong>
+              <button type="button" data-cact="plus" data-id="${id}">+</button>
+              <button type="button" class="remove-button" data-cact="del" data-id="${id}">✕</button>
+            </div>
+          </div>`;
+      }).join('') : '<div class="empty-cart"><div style="font-size:2rem;margin-bottom:8px;">🌿</div>Your cart is empty.</div>';
+
+      el.cartItems.onclick = e => {
+        const b = e.target.closest('button');
+        if (!b) return;
+        const id = b.dataset.id, act = b.dataset.cact, p = state.products.find(x => x.productId === id);
+        if (!p || !state.cart[id]) return;
+
+        if (act === 'minus') {
+          state.cart[id] > 1 ? state.cart[id]-- : delete state.cart[id];
+        }
+        if (act === 'plus') {
+          state.cart[id] = Math.min(state.cart[id] + 1, p.availableStock);
+        }
+        if (act === 'del') {
+          delete state.cart[id];
+        }
+        renderCart();
+      };
+
+      const t = calculateDisplayCart();
+      el.cartCount.textContent = t.itemCount;
+      el.cartSubtotal.textContent = formatMoney(t.subtotal);
+      el.cartTotal.textContent = formatMoney(t.total);
+      el.discountLine.hidden = t.discount <= 0;
+      el.cartDiscount.textContent = '-' + formatMoney(t.discount);
+      renderOfferMessage(t);
+      el.checkoutButton.disabled = t.itemCount === 0;
+    }
+
+    function calculateDisplayCart() {
+      let subtotal = 0, itemCount = 0;
+      Object.entries(state.cart).forEach(([id, q]) => {
+        const p = state.products.find(x => x.productId === id);
+        if (p) {
+          subtotal += p.effectiveUnitPrice * q;
+          itemCount += q;
+        }
+      });
+
+      let discount = 0;
+      state.promotions.forEach(pr => {
+        if (pr.promotionType !== 'MULTIBUY_FIXED_PRICE' || pr.automaticPromotion !== true) return;
+        const units = [];
+        Object.entries(state.cart).forEach(([id, q]) => {
+          const p = state.products.find(x => x.productId === id);
+          if (p && pr.eligibleProductIds && pr.eligibleProductIds.includes(id)) {
+            for (let i = 0; i < q; i++) units.push(p.effectiveUnitPrice);
+          }
+        });
+        units.sort((a, b) => b - a);
+        let count = Math.floor(units.length / pr.buyQuantity);
+        if (!pr.allowMultipleBundles) count = Math.min(count, 1);
+        for (let i = 0; i < count; i++) {
+          const bundle = units.slice(i * pr.buyQuantity, (i + 1) * pr.buyQuantity);
+          discount += Math.max(0, bundle.reduce((a, b) => a + b, 0) - pr.bundlePrice);
+        }
+      });
+
+      subtotal = roundMoney(subtotal);
+      discount = roundMoney(discount);
+      return { itemCount, subtotal, discount, total: roundMoney(subtotal - discount) };
+    }
+
+    function renderOfferMessage(t) {
+      const p = state.promotions.find(x => x.promotionType === 'MULTIBUY_FIXED_PRICE' && x.automaticPromotion === true);
+      if (!p || t.itemCount === 0) {
+        el.offerMessage.classList.remove('visible');
+        return;
+      }
+      let eligible = 0;
+      Object.entries(state.cart).forEach(([id, q]) => {
+        if (p.eligibleProductIds && p.eligibleProductIds.includes(id)) eligible += q;
+      });
+      const rem = eligible % p.buyQuantity, needed = rem === 0 ? 0 : p.buyQuantity - rem;
+      el.offerMessage.textContent = t.discount > 0 && needed === 0
+        ? `${p.promotionLabel} applied. You save ${formatMoney(t.discount)}.`
+        : `Add ${needed} more eligible item${needed===1?'':'s'} to unlock ${p.promotionLabel}.`;
+      el.offerMessage.classList.add('visible');
+    }
+
+    function openCart() { el.cartOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeCart() { el.cartOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+    function openCheckout() {
+      const t = calculateDisplayCart();
+      if (!t.itemCount) return;
+      closeCart();
+      el.checkoutFormView.style.display = 'block';
+      el.orderSuccess.classList.remove('visible');
+      el.checkoutError.classList.remove('visible');
+      el.checkoutSubtotal.textContent = formatMoney(t.subtotal);
+      el.checkoutDiscount.textContent = '-' + formatMoney(t.discount);
+      el.checkoutDiscountLine.hidden = t.discount <= 0;
+      updateDelivery();
+      el.checkoutOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCheckout() {
+      if (el.submitOrderButton.disabled) return;
+      el.checkoutOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function getSelectedDelivery() {
+      const s = document.querySelector('input[name="deliveryMethod"]:checked');
+      return s ? s.value : 'COLLECTION';
+    }
+
+    function calculateShipping() {
+      const m = getSelectedDelivery();
+      const count = Object.values(state.cart).reduce((a, b) => a + b, 0);
+      if (m === 'COLLECTION' || count <= 0) return 0;
+      if (m === 'PUDO_BOX_TO_DOOR') return count <= 3 ? 120 : 150;
+      if (m === 'PUDO_BOX_TO_BOX') return count <= 3 ? 80 : 100;
+      return 0;
+    }
+
+    function formatLocalDateInput(date) {
+      const y = date.getFullYear(), m = String(date.getMonth() + 1).padStart(2, '0'), d = String(date.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + d;
+    }
+
+    function setPaymentDateLimits() {
+      const input = $('requestedPaymentDate');
+      if (!input) return;
+      const today = new Date(), max = new Date(today.getTime());
+      max.setDate(max.getDate() + 14);
+      input.min = formatLocalDateInput(today);
+      input.max = formatLocalDateInput(max);
+    }
+
+    function updateDelivery() {
+      const m = getSelectedDelivery();
+      const shipping = m !== 'COLLECTION';
+      const boxToBox = m === 'PUDO_BOX_TO_BOX';
+
+      el.shippingFields.classList.toggle('visible', shipping);
+      $('collectionPaymentDatePanel').hidden = shipping;
+      $('shippingPaymentNotice').hidden = !shipping;
+
+      const dateInput = $('requestedPaymentDate');
+      dateInput.disabled = shipping;
+      if (shipping) dateInput.value = '';
+
+      ['deliveryAddress','deliverySuburb','deliveryCity','deliveryProvince','deliveryPostalCode'].forEach(id => $(id).required = shipping);
+
+      const aLabel = $('deliveryAddressLabel'), aInput = $('deliveryAddress');
+      if (boxToBox) {
+        aLabel.textContent = 'PUDO locker or box address';
+        aInput.placeholder = 'Enter the destination PUDO locker name/location';
+      } else {
+        aLabel.textContent = 'Delivery address';
+        aInput.placeholder = 'Enter physical street address';
+      }
+
+      setPaymentDateLimits();
+      updateCheckoutTotals();
+    }
+
+    function updateCheckoutTotals() {
+      const t = calculateDisplayCart();
+      const shipping = calculateShipping();
+      el.checkoutShipping.textContent = formatMoney(shipping);
+      el.checkoutTotal.textContent = formatMoney(t.total + shipping);
+    }
+
+    function createCheckoutToken() {
+      if (!state.checkoutToken) {
+        state.checkoutToken = 'RR-WEB-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10).toUpperCase();
+      }
+      return state.checkoutToken;
+    }
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      if (el.submitOrderButton.disabled) return;
+
+      const f = new FormData(el.checkoutForm);
+      const payload = {
+        action: 'createOrder',
+        business: BUSINESS,
+        customer: {
+          firstName: String(f.get('firstName') || '').trim(),
+          surname: String(f.get('surname') || '').trim(),
+          cellphone: String(f.get('cellphone') || '').trim(),
+          email: String(f.get('email') || '').trim()
+        },
+        delivery: {
+          method: getSelectedDelivery(),
+          address: String(f.get('deliveryAddress') || '').trim(),
+          suburb: String(f.get('deliverySuburb') || '').trim(),
+          city: String(f.get('deliveryCity') || '').trim(),
+          province: String(f.get('deliveryProvince') || '').trim(),
+          postalCode: String(f.get('deliveryPostalCode') || '').trim(),
+          country: 'South Africa',
+          countryCode: 'ZA'
+        },
+        requestedPaymentDate: getSelectedDelivery() === 'COLLECTION' ? String(f.get('requestedPaymentDate') || '').trim() : '',
+        items: Object.entries(state.cart).map(([productId, quantity]) => ({ productId, quantity })),
+        notes: String(f.get('orderNotes') || '').trim(),
+        checkoutToken: createCheckoutToken()
+      };
+
+      el.checkoutError.classList.remove('visible');
+      el.submitOrderButton.disabled = true;
+      el.submitOrderButton.textContent = 'Submitting order...';
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Server returned HTTP ' + res.status);
+        const result = await res.json();
+        if (!result.success) throw new Error(result.message || 'The order could not be created.');
+
+        el.checkoutFormView.style.display = 'none';
+        el.successOrderReference.textContent = result.order.orderId;
+        el.successOrderTotal.textContent = 'Order total: ' + formatMoney(result.order.cart.orderTotal);
+        el.orderSuccess.classList.add('visible');
+
+        state.cart = {};
+        state.checkoutToken = '';
+        renderCart();
+        el.checkoutForm.reset();
+        updateDelivery();
+
+        // Refresh live stock in background
+        initStore();
+      } catch (err) {
+        el.checkoutError.textContent = err.message;
+        el.checkoutError.classList.add('visible');
+      } finally {
+        el.submitOrderButton.disabled = false;
+        el.submitOrderButton.textContent = 'Place order';
+      }
+    }
+
+    function formatMoney(v) {
+      return new Intl.NumberFormat('en-ZA', { style: 'currency', currency: 'ZAR', minimumFractionDigits: 2 }).format(Number(v) || 0);
+    }
+    function roundMoney(v) {
+      return Math.round((Number(v) + Number.EPSILON) * 100) / 100;
+    }
+    function escapeHtml(v) {
+      const d = document.createElement('div');
+      d.textContent = String(v || '');
+      return d.innerHTML;
+    }
+  </script>
+</body>
+</html>
